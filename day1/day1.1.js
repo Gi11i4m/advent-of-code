@@ -10,7 +10,7 @@ class Program {
 
     instructions.forEach(instruction => path.parseInstruction(instruction));
     const destinationDistance = path.getLastCoordinate().getDistanceToZero();
-
+    
     console.log(destinationDistance);
   }
 }

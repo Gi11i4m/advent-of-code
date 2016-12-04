@@ -9,9 +9,8 @@ class Program {
     let path = new Path(new Coordinate(0,0), startingDirection);
 
     instructions.forEach(instruction => path.parseInstruction(instruction));
-    const distanceToFirstDoubleCrossedCoordinate = path.findFirstDoubleCrossedCoordinate().getDistanceToZero();
 
-    console.log(distanceToFirstDoubleCrossedCoordinate);
+    console.log(path.findFirstDoubleCrossedCoordinate().getDistanceToZero());
   }
 }
 
