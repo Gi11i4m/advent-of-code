@@ -1,13 +1,14 @@
-import { KeypadUser } from './keypad-user';
-import {Position} from "./position";
+import {Keypad} from "./keypad";
+import {DesignerKeypad} from "./designer-keypad";
 
 class Program {
   static execute(inputs: string[][]) {
-    let keypadUser: KeypadUser = new KeypadUser(new Position(1,1));
-    let code = [];
-    inputs.forEach(inputList => {
-      keypadUser.moveFinger(inputList);
-      code.push(keypadUser.getKeypadKeyUnderFinger());
+    let code:any[] = [];
+    //let keypad:Keypad = new Keypad(5); // DAY1.1
+    let keypad:DesignerKeypad = new DesignerKeypad(5); // DAY1.2
+    inputs.forEach(inputArray => {
+      inputArray.forEach(input => keypad.setCurrentlySelectedKey(input));
+      code.push(keypad.currentlySelectedKey);
     });
     console.log(code);
   }
