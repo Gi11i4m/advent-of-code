@@ -1,4 +1,4 @@
-const md5 = require("md5");
+const md5 = require('md5');
 
 class Program{
   static execute(input: string) {
@@ -8,11 +8,11 @@ class Program{
       let hash: string = md5(input + index);
       if(hash.startsWith('00000')) {
         password += hash[5];
-        console.log("Found password character " + password.length);
+        process.stdout.write('...' + password.length + '...');
       }
       index++;
     }
-    console.log("Password = " + password);
+    process.stdout.write('\nPassword: ' + password + '\n');
   }
 }
 
