@@ -6,6 +6,9 @@ Language = TypeScript.
 http://adventofcode.com/2016/
 
 ## Execution
+To set up the environment
+> npm install
+
 To set the day to execute
 > npm config set advent-of-code:day ${day}
 
