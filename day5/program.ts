@@ -1,7 +1,20 @@
-const md5 = require("md5");
+const md5 = require('md5');
 
 class Program{
-  static execute(input: string) {
+  static executePart1(input: string) {
+    let index: number = 0;
+    let password: string = '';
+    while(password.length < 8) {
+      let hash: string = md5(input + index);
+      if(hash.startsWith('00000')) {
+        password += hash[5];
+        process.stdout.write('...' + password.length + '...');
+      }
+      index++;
+    }
+    process.stdout.write('\nPassword: ' + password + '\n');
+  }
+  static executePart2(input: string) {
     let index: number = 0;
     let password: string[] = [];
     while(this.isFilled(password, 8)) {
@@ -30,4 +43,5 @@ class Program{
   }
 }
 
-Program.execute(process.argv[2]);
+Program.executePart1('ugkcyxxp');
+Program.executePart2('ugkcyxxp');

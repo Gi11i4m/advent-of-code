@@ -2,9 +2,17 @@ import {Keypad} from "./keypad";
 import {DesignerKeypad} from "./designer-keypad";
 
 class Program {
-  static execute(inputs: string[][]) {
+  static executePart1(inputs: string[][]) {
     let code:any[] = [];
-    //let keypad:Keypad = new Keypad(5); // DAY1.1
+    let keypad:Keypad = new Keypad(5);
+    inputs.forEach(inputArray => {
+      inputArray.forEach(input => keypad.setCurrentlySelectedKey(input));
+      code.push(keypad.currentlySelectedKey);
+    });
+    console.log(code);
+  }
+  static executePart2(inputs: string[][]) {
+    let code:any[] = [];
     let keypad:DesignerKeypad = new DesignerKeypad(5); // DAY1.2
     inputs.forEach(inputArray => {
       inputArray.forEach(input => keypad.setCurrentlySelectedKey(input));
@@ -22,4 +30,5 @@ const inputs: string[][] = [
     ['R','U','R','R','R','R','U','R','U','D','D','R','L','U','R','U','D','U','L','R','D','U','D','D','D','U','U','R','U','L','D','R','R','R','R','U','R','D','L','D','R','R','L','L','D','L','U','D','L','R','R','L','R','R','U','U','L','L','U','R','U','L','L','R','D','L','L','R','D','D','D','D','U','L','L','R','L','L','D','D','L','L','R','U','D','D','U','L','D','U','D','L','D','U','R','L','R','U','U','L','D','D','U','R','U','R','D','U','R','D','L','D','R','R','U','L','R','U','R','R','R','R','R','L','R','R','L','L','U','D','U','R','R','U','R','U','L','R','L','R','D','L','R','L','R','R','R','L','L','U','R','U','R','D','L','L','L','D','L','D','D','U','L','D','L','U','D','D','L','L','L','R','U','D','D','R','D','R','L','R','U','D','R','R','L','D','D','L','R','D','L','R','L','R','L','R','L','R','R','D','U','U','U','R','R','U','D','R','R','L','D','L','R','R','U','U','L','U','L','L','U','D','R','R','R','U','D','L','U','R','D','R','U','U','L','D','R','D','R','R','L','U','U','L','U','L','D','D','L','U','R','R','L','D','U','L','L','U','R','L','D','R','L','D','U','L','D','R','L','L','D','L','U','U','U','L','L','U','L','R','R','D','D','R','U','R','R','U','R','L','D','L','D','R','R','L','L','L','L','L','U','D','U','U','R','U','U','L','U','R','L','R','D','D','D','L','R','R','R','R','L','L','L','U','R','U','D','L','D','D','R','D','D','R','R','U','D','U','R','U','U','L','D','R','R','U','L','L','L','R','R','L','R','U','L','L','L','R','L','D','D','L','L','R','R','L','R','U','R','L','R','D','R','U','D','U','L','L','D','D','L','D','D','D','D','D','L','D','U','R','U','R','D','L','U','L','R','D','D','L','R','D','L','L','R','U','R','L','L','R','D','L','R','U','D','D','R','D','R','R','D','U','R','D','U','R','L','U','D','R','L','D','U','D','D','D','R','R','U','R','R','L','U','U','L','U','R','U','L','L','R','L','R','D','L','R','R','L','R','U','R','U','L','L','D','D','U','R','L','L','R','R','R','U','D','D','R','D','L','U','L','U','R','R','R','U','U','U','U','L','U','U','L','R','R','L','L','D','L','R','U','U','U','R','L','L','U','R','L','U','U','R','R','L','R','L']
 ];
 
-Program.execute(inputs);
+Program.executePart1(inputs);
+Program.executePart2(inputs);

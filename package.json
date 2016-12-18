@@ -1,25 +1,24 @@
 {
-  "dependencies": {
-    "md5": "^2.2.1",
-    "typings": "^2.0.0"
-  },
   "name": "advent-of-code",
   "description": "My solutions to the Advent of Code programming problems.",
-  "version": "1.0.0",
-  "main": "index.js",
-  "devDependencies": {},
+  "config": {
+    "day": 8
+  },
   "scripts": {
-    "postinstall": "npm install -g typings",
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "start": "cd day$npm_package_config_day && tsc --outDir build program.ts && node build/program.js",
+    "postinstall": "npm install -g typings && npm install -g typescript"
   },
   "repository": {
     "type": "git",
     "url": "git+https://github.com/Gi11i4m/advent-of-code.git"
   },
   "author": "Gi11i4m",
-  "license": "ISC",
   "bugs": {
     "url": "https://github.com/Gi11i4m/advent-of-code/issues"
   },
-  "homepage": "https://github.com/Gi11i4m/advent-of-code#readme"
+  "homepage": "https://github.com/Gi11i4m/advent-of-code#readme",
+  "dependencies": {
+    "@types/es6-shim": "^0.31.32",
+    "@types/lodash": "^4.14.43"
+  }
 }

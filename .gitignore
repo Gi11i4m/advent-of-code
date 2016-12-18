@@ -1,3 +1,2 @@
-**/day[0-9]*/**/*.js
-**/day[0-9]*/**/*.js.map
-node_modules/
+**/build
+**/node_modules/
