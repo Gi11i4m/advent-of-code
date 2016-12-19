@@ -2,10 +2,12 @@
   "name": "advent-of-code",
   "description": "My solutions to the Advent of Code programming problems.",
   "config": {
-    "day": 8
+    "day": 8,
+    "compileDir": "build"
   },
   "scripts": {
-    "start": "cd day$npm_package_config_day && tsc --outDir build program.ts && node build/program.js",
+    "watch": "cd day$npm_package_config_day && mkdir -p $npm_package_config_compileDir && tsc -w --outDir $npm_package_config_compileDir program.ts",
+    "start": "cd day$npm_package_config_day && tsc --outDir $npm_package_config_compileDir program.ts && node build/program.js",
     "postinstall": "npm install -g typings && npm install -g typescript"
   },
   "repository": {

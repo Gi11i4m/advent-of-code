@@ -6,16 +6,19 @@ Language = TypeScript.
 http://adventofcode.com/2016/
 
 ## Execution
-To set up the environment
+Set up the environment
 > npm install
 
-To set the day to execute
+Set the day to execute
 > npm config set advent-of-code:day ${day}
 
-To execute the script for the configured day
+Execute the script for the configured day
 > npm start
+
+Watch code for the configured day for changes and show compiler output in the console
+> npm run watch
 
 ## To do
 * Re-write day1 in TypeScript
-* Make day1 & day5 compatible with the npm start script
+* Make day1 and day5 compatible with the npm start script
 * Refactor day1 - day5
