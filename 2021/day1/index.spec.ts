@@ -1,5 +1,7 @@
+import { run } from '.';
+
 describe('day 1', () => {
-  it('should say hello', () => {
-    expect(true).toBeTruthy();
+  it('should give expected answer', () => {
+    expect(run([199, 200, 208, 210, 200, 207, 240, 269, 260, 263])).toEqual(7);
   });
 });
