@@ -1,8 +1,8 @@
 {
   "compilerOptions": {
     "rootDir": "src",
-    // "sourceRoot": "src",
-    // "inlineSourceMap": true,
+    "sourceRoot": "src",
+    "inlineSourceMap": true,
     "outDir": "pages",
     "target": "ES2022",
     "module": "commonjs",
