@@ -1,0 +1,50 @@
+<html>
+  <head>
+    <title>AoC</title>
+    <meta
+      name="description"
+      content="Advent of Code 2022 solutions by Gilliam"
+    />
+    <meta name="author" content="Gi11i4m" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <style src="./index.css"></style>
+    <script src="https://unpkg.com/browser-cjs/require.js"></script>
+  </head>
+  <body>
+    <div id="container">
+      <select name="days" id="days">
+        {{DAY_OPTIONS}}
+      </select>
+      <textarea id="input"></textarea>
+      <span id="answer"></span>
+    </div>
+    <script>
+      let day = 'day1';
+
+      function getInput() {
+        return document.getElementById('input').value;
+      }
+
+      function runDay() {
+        let result = 'No answer found for this input!';
+
+        try {
+          result = require(`./${day}/index.js`).run(getInput());
+        } catch (e) {}
+
+        document.getElementById('answer').innerText = result;
+      }
+
+      document
+        .getElementById('days')
+        .addEventListener('input', ({ target: { value } }) => {
+          day = value;
+          runDay(getInput());
+        });
+
+      document
+        .getElementById('input')
+        .addEventListener('input', () => runDay(getInput()));
+    </script>
+  </body>
+</html>

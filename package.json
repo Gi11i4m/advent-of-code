@@ -1,0 +1,8 @@
+{
+  "name": "advent-of-code",
+  "private": true,
+  "author": "Gi11i4m",
+  "workspaces": [
+    "20**/**"
+  ]
+}
