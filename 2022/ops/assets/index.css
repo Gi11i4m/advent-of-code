@@ -41,4 +41,6 @@ body img {
 
 #answer {
   color: white;
+  text-align: end;
+  font-size: 1.5rem;
 }

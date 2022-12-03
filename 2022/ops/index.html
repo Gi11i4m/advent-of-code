@@ -25,7 +25,7 @@
 
       <textarea id="input" placeholder="Input"></textarea>
 
-      <span id="answer"></span>
+      <code id="answer"></code>
     </div>
 
     <script>
@@ -41,7 +41,9 @@
         let result = 'No answer found for this input!';
 
         try {
-          result = require(`./${getDay()}/index.js`).run(getInput());
+          result = `Answer = ${require(`./${getDay()}/index.js`).run(
+            getInput()
+          )}`;
         } catch (e) {}
 
         document.getElementById('answer').innerText = result;
