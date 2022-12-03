@@ -1,11 +1,18 @@
 export const parseGroupedNumbers = (input: string): number[][] =>
   input
     .replaceAll(' ', '')
+    .trim()
     .split('\n\n')
     .map((calorieGroup) =>
       calorieGroup
-        .trim()
         .split('\n')
-        .filter((calorie) => calorie.trim() !== '')
-        .map((calorie) => Number(calorie.trim()))
+        .filter((calorie) => calorie !== '')
+        .map((calorie) => Number(calorie))
     );
+
+export const parseGroupedLetters = (input: string): string[][] =>
+  input
+    .replaceAll(' ', '')
+    .trim()
+    .split('\n')
+    .map((letterGroup) => letterGroup.split(''));

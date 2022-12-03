@@ -8,8 +8,8 @@ const OPS_PATH = path.resolve(__dirname);
 const PAGES_PATH = path.resolve(PROJECT_PATH, 'pages');
 const HTML_FILENAME = 'index.html';
 const HTML_PATH = path.resolve(PAGES_PATH, HTML_FILENAME);
-const CSS_FILENAME = 'index.css';
-const CSS_PATH = path.resolve(PAGES_PATH, CSS_FILENAME);
+const ASSETS_DIRNAME = 'assets';
+const ASSETS_PATH = path.resolve(PAGES_PATH, ASSETS_DIRNAME);
 
 function addJsToRequirePaths(filePath) {
   fs.readFile(filePath, 'utf8', (_, data) =>
@@ -45,7 +45,9 @@ function addOptionsToHtml(options) {
 fs.rmSync(PAGES_PATH, { recursive: true, force: true });
 execSync(`cd ${PROJECT_PATH} && tsc`);
 fs.copyFileSync(path.resolve(OPS_PATH, HTML_FILENAME), HTML_PATH);
-fs.copyFileSync(path.resolve(OPS_PATH, CSS_FILENAME), CSS_PATH);
+fs.cpSync(path.resolve(OPS_PATH, ASSETS_DIRNAME), ASSETS_PATH, {
+  recursive: true,
+});
 
 create().paths(PAGES_PATH).ext('js').find().each(addJsToRequirePaths);
 

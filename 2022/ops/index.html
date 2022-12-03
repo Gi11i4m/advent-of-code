@@ -7,17 +7,26 @@
     />
     <meta name="author" content="Gi11i4m" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <style src="./index.css"></style>
+    <link rel="icon" type="image/x-icon" href="/assets/favicon.png" />
+
     <script src="https://unpkg.com/browser-cjs/require.js"></script>
+    <link rel="stylesheet" href="/assets/index.css" />
   </head>
   <body>
-    <div id="container">
-      <select name="days" id="days">
-        {{DAY_OPTIONS}}
-      </select>
-      <textarea id="input"></textarea>
+    <img src="/assets/aoc-banner.jpeg" />
+
+    <div id="aoc-container">
+      <div>
+        <select name="days" id="days">
+          {{DAY_OPTIONS}}
+        </select>
+      </div>
+
+      <textarea id="input" placeholder="Input"></textarea>
+
       <span id="answer"></span>
     </div>
+
     <script>
       let day = 'day1';
 
