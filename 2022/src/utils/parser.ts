@@ -10,9 +10,25 @@ export const parseGroupedNumbers = (input: string): number[][] =>
         .map((calorie) => Number(calorie))
     );
 
+const parseLines = (input: string): string[] =>
+  input.replaceAll(' ', '').trim().split('\n');
+
 export const parseGroupedLetters = (input: string): string[][] =>
-  input
-    .replaceAll(' ', '')
-    .trim()
-    .split('\n')
-    .map((letterGroup) => letterGroup.split(''));
+  parseLines(input).map((letterGroup) => letterGroup.split(''));
+
+export const parseLinesAndSplitHalfway = (input: string): [string, string][] =>
+  parseLines(input).map((line) => [
+    line.slice(0, line.length / 2),
+    line.slice(line.length / 2),
+  ]);
+
+export const parseLinesGroupedBy = (input: string, groupSize = 3) =>
+  parseLines(input)
+    .reduce<string[][]>(
+      ([first, ...rest], next) =>
+        first!.length < groupSize
+          ? [[...first!, next], ...rest]
+          : [[next], first!, ...rest],
+      [[]]
+    )
+    .reverse();

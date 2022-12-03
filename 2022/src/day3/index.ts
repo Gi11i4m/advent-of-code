@@ -1,0 +1,18 @@
+import { parseLinesAndSplitHalfway } from '../utils/parser';
+import { sum } from '../utils/reduce';
+
+const ALPHABETH = Array.of(
+  (char: string) => char,
+  (char: string) => char.toUpperCase()
+).flatMap((fun) => fun('abcdefghijklmnopqrstuvwxyz').split(''));
+
+const findCommonItem = ([items1, items2]: [string, string]) =>
+  items1.split('').find((item) => items2.includes(item))!;
+
+const getPriorityFor = (letter: string) => ALPHABETH.indexOf(letter) + 1;
+
+export const run = (input: string) =>
+  parseLinesAndSplitHalfway(input)
+    .map(findCommonItem)
+    .map(getPriorityFor)
+    .reduce(sum, 0);
