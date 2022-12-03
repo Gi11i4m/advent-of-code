@@ -7,19 +7,20 @@
     />
     <meta name="author" content="Gi11i4m" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <link rel="icon" type="image/x-icon" href="/assets/favicon.png" />
+    <link rel="icon" type="image/x-icon" href="./assets/favicon.png" />
 
     <script src="https://unpkg.com/browser-cjs/require.js"></script>
-    <link rel="stylesheet" href="/assets/index.css" />
+    <link rel="stylesheet" href="./assets/index.css" />
   </head>
   <body>
-    <img src="/assets/aoc-banner.jpeg" />
+    <img src="./assets/aoc-banner.jpeg" />
 
     <div id="aoc-container">
       <div>
         <select name="days" id="days">
           {{DAY_OPTIONS}}
         </select>
+        <a id="code-url" target="_blank"><code>Code</code></a>
       </div>
 
       <textarea id="input" placeholder="Input"></textarea>
@@ -28,7 +29,9 @@
     </div>
 
     <script>
-      let day = 'day1';
+      function getDay() {
+        return document.getElementById('days').value;
+      }
 
       function getInput() {
         return document.getElementById('input').value;
@@ -38,17 +41,33 @@
         let result = 'No answer found for this input!';
 
         try {
-          result = require(`./${day}/index.js`).run(getInput());
+          result = require(`./${getDay()}/index.js`).run(getInput());
         } catch (e) {}
 
         document.getElementById('answer').innerText = result;
       }
 
+      function addSourceCodeUrl() {
+        document
+          .getElementById('code-url')
+          .setAttribute(
+            'href',
+            `https://github.com/Gi11i4m/advent-of-code/blob/master/2022/src/${getDay()}/index.ts`
+          );
+      }
+
+      function init() {
+        runDay(getInput());
+        addSourceCodeUrl();
+      }
+
+      init();
+
       document
         .getElementById('days')
         .addEventListener('input', ({ target: { value } }) => {
-          day = value;
           runDay(getInput());
+          addSourceCodeUrl();
         });
 
       document

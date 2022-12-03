@@ -22,6 +22,12 @@ body img {
 #days {
   color: white;
   background-color: black;
+  margin-bottom: 0.4rem;
+}
+
+#code-url {
+  color: white;
+  display: block;
 }
 
 #input {
@@ -29,6 +35,7 @@ body img {
   padding: 1rem;
   color: white;
   background-color: black;
+  margin-bottom: 1rem;
 }
 
 #answer {
