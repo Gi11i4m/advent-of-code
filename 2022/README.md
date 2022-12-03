@@ -15,4 +15,4 @@ npm test -- day1
 
 ## Pages
 
-A GitHub Pages website will be generated on each `git push`. Here you can enter inputs and immediately execute the solution script for each day.
+A [GitHub Pages website](https://gi11i4m.github.io/advent-of-code/) will be generated on each `git push`. Here you can enter inputs and immediately execute the solution script for each day.
