@@ -32,3 +32,8 @@ export const parseLinesGroupedBy = (input: string, groupSize = 3) =>
       [[]]
     )
     .reverse();
+
+export const parseGroupedRanges = (input: string): number[][][] =>
+  parseLines(input).map((line) =>
+    line.split(',').map((range) => range.split('-').map(Number))
+  );

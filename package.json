@@ -4,5 +4,8 @@
   "author": "Gi11i4m",
   "workspaces": [
     "20**/**"
-  ]
+  ],
+  "dependencies": {
+    "typescript": "^4.9.3"
+  }
 }
